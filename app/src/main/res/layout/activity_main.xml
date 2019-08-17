@@ -6,12 +6,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding">
 
     <TextView
             android:text="@string/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/name_text"
+            android:layout_height="46dp" android:id="@+id/name_text"
             android:textAlignment="center"
             style="@style/name_style"/>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:srcCompat="@android:drawable/btn_star_big_on"
+            android:id="@+id/star_image" android:contentDescription="@string/yellow_star"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/bio_scroll">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/bio_text" style="@style/name_style"
+                android:text="@string/bio" android:lineSpacingMultiplier="1.2"/>
+    </ScrollView>
 </LinearLayout>
