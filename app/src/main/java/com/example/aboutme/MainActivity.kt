@@ -13,6 +13,7 @@ import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private  val myName: MyName = MyName("Teerawat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -23,17 +24,19 @@ class MainActivity : AppCompatActivity() {
             nicknameText.setOnClickListener{
                 updateNickname(it)
             }
+            //this.myName (binding) = this@MainActivity.myName   //การเอา บรรทัดที่ 29 เข้ามาไว้ใน binding.apply
         }
-
+        binding.myName = myName
     }
 
     private fun addNickname(view: View) {
         binding.apply {
-            nicknameText.text = nicknameEdit.text
+            myName?.nickname = nicknameEdit.text.toString()
             nicknameEdit.visibility = View.GONE
             nicknameText.visibility = View.VISIBLE
 
             doneButton.visibility = View.GONE
+            invalidateAll()
         }
 
         //Hide KeyBoard after click done
